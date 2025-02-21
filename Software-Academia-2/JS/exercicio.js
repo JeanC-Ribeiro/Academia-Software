@@ -1,4 +1,3 @@
-
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -8,7 +7,6 @@ function getRandomInt(min, max) {
 function pegarExerciciosAleatorio(array) {
     return array[getRandomInt(0, array.length - 1)];
 }
-
 
 var exercicios = [
     'exerciciosPeito',
@@ -20,8 +18,6 @@ var exercicios = [
     'exerciciosPanturilha'
 ];
 
-
-//Math.floor(Math.random() * (exercicios.length - 0 + 1))
 var exerciciosTipo = {
     'exerciciosPeito': [
         "Supino Reto",
@@ -35,16 +31,16 @@ var exerciciosTipo = {
         "CrossOver"
     ],
     'exerciciosTriceps': [
-        "Tríceps Corda ",
-        "Mergulhos em Paralelas ",
-        "Extensão de Cotovelo em Pé ",
-        "Tríceps Testa ",
-        "Extensão de Tríceps deitado ",
-        "Fundições ",
-        "Pulldown de Tríceps na Polia Alta ",
-        "Tríceps Unilateral com Halteres ",
-        "Puxada na Máquina para Tríceps ",
-        "Mergulho no Banco "
+        "Tríceps Corda",
+        "Mergulhos em Paralelas",
+        "Extensão de Cotovelo em Pé",
+        "Tríceps Testa",
+        "Extensão de Tríceps deitado",
+        "Fundições",
+        "Pulldown de Tríceps na Polia Alta",
+        "Tríceps Unilateral com Halteres",
+        "Puxada na Máquina para Tríceps",
+        "Mergulho no Banco"
     ],
     'exerciciosCosta': [
         "Face Pulls com Corda",
@@ -58,14 +54,14 @@ var exerciciosTipo = {
         "Barra Fixa Supinada"
     ],
     'exerciciosBiceps': [
-        "Rosca com Barra ",
-        "Rosca com Halteres ",
-        "Martelo com Halteres ",
-        "Rosca Scott ",
-        "Rosca Concentrado ",
-        "Rosca na Máquina ",
-        "Rosca 21s ",
-        "Rosca Inversa "
+        "Rosca com Barra",
+        "Rosca com Halteres",
+        "Martelo com Halteres",
+        "Rosca Scott",
+        "Rosca Concentrado",
+        "Rosca na Máquina",
+        "Rosca 21s",
+        "Rosca Inversa"
     ],
     'exerciciosPerna': [
         "Agachamento(Squat)",
@@ -105,70 +101,42 @@ var exerciciosTipo = {
     ]
 }
 
+var exerciciosEscolhidos = {};
+
 function gerarTreino() {
     const tabelaTreino = document.getElementById("tabelaTreino");
     tabelaTreino.innerHTML = "<tr><th>Dia</th><th>Exercício</th></tr>";
-    //var tiposTreinoKeys = Object.keys(exercicios);
     var qtdExerciciosDia = 6;
     var treinosSorteados = [];
 
-    function pegarTreinoDia(){
-        var tipoTreinoDia = exercicios[getRandomInt(0, Object.keys(exercicios).length - 1)];
-        if(treinosSorteados.indexOf(tipoTreinoDia) == -1){
-            treinosSorteados.push(tipoTreinoDia);
-            var arrayTreinoDia = exerciciosTipo[tipoTreinoDia];
-            return { 'array': arrayTreinoDia, 'tipo': tipoTreinoDia };
-        }else{
-            return pegarTreinoDia();
-        }
-    }
-
     for (let i = 1; i <= 6; i++) {
         const diaDaSemana = obterDiaDaSemana(i);
-        var arrayTreinoDia = pegarTreinoDia();
+        var tipoTreinoDia = exercicios[getRandomInt(0, exercicios.length - 1)];
+        
+        while (treinosSorteados.includes(tipoTreinoDia)) {
+            tipoTreinoDia = exercicios[getRandomInt(0, exercicios.length - 1)];
+        }
+        treinosSorteados.push(tipoTreinoDia);
+
+        var arrayTreinoDia = exerciciosTipo[tipoTreinoDia];
         var exerciciosDia = '';
+        var exerciciosUsados = [];
 
         for (let countExer = 0; countExer < qtdExerciciosDia; countExer++) {
-            exerciciosDia += pegarExerciciosAleatorio(arrayTreinoDia['array']) + '<br>';
+            var exercicioEscolhido = pegarExerciciosAleatorio(arrayTreinoDia);
+            while (exerciciosUsados.includes(exercicioEscolhido)) {
+                exercicioEscolhido = pegarExerciciosAleatorio(arrayTreinoDia);
+            }
+            exerciciosUsados.push(exercicioEscolhido);
+            exerciciosDia += exercicioEscolhido + '<br>';
         }
 
         tabelaTreino.innerHTML += `
         <tr>
-            <td>${diaDaSemana}<br>${arrayTreinoDia['tipo'].replace('exercicios', '')}</td>
+            <td>${diaDaSemana}<br>${tipoTreinoDia.replace('exercicios', '')}</td>
             <td>${exerciciosDia}</td>
         </tr>
-            `;
-    }
-}
-
-
-
-var exerciciosEscolhidos = {};
-function pegarTreinoDia() {
-    var tipoTreinoDia = exercicios[getRandomInt(0, exercicios.length - 1)];
-    if (treinosSorteados.indexOf(tipoTreinoDia) == -1) {
-        treinosSorteados.push(tipoTreinoDia);
-
-       
-        if (!exerciciosEscolhidos[tipoTreinoDia]) {
-            exerciciosEscolhidos[tipoTreinoDia] = [];
-        }
-
-        var arrayTreinoDia = exerciciosTipo[tipoTreinoDia];
-        var exerciciosNaoEscolhidos = arrayTreinoDia.filter(exercicio => !exerciciosEscolhidos[tipoTreinoDia].includes(exercicio));
-
-       
-        if (exerciciosNaoEscolhidos.length === 0) {
-            exerciciosEscolhidos[tipoTreinoDia] = [];
-            exerciciosNaoEscolhidos = arrayTreinoDia;
-        }
-
-        var exercicioEscolhido = pegarExerciciosAleatorio(exerciciosNaoEscolhidos);
-        exerciciosEscolhidos[tipoTreinoDia].push(exercicioEscolhido);
-
-        return { 'array': arrayTreinoDia, 'tipo': tipoTreinoDia, 'exercicio': exercicioEscolhido };
-    } else {
-        return pegarTreinoDia();
+        `;
     }
 }
 
