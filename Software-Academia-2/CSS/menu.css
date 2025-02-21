@@ -1,0 +1,98 @@
+@import url("https:/fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: url('../IMAGENS/menu.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.imagem-banner {
+    width: 1000px;
+    height: 500px;
+    margin-left: -500px;
+    margin-top: -250px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(44, 2, 64, 0.9);
+    cursor: pointer;
+}
+
+
+nav.menu-lateral {
+    width: 65px;
+    height: 100%;
+    background-color: #46295a;
+    padding: 40px 0 40px 0%;
+    box-shadow: 5px 0 0 purple;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+nav.menu-lateral:hover {
+    width: 300px;
+}
+
+.bnt-expandir {
+    width: 100%;
+    padding-left: 15px;
+
+}
+
+.bnt-expandir>i {
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    padding-left: 3%;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu {
+    white-space: nowrap;
+    transition: 0.5s;
+}
+
+
+ul li.item-menu:hover {
+    background-color: purple;
+}
+
+ul li.item-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 3%;
+    display: flex;
+    margin-bottom: 15px;
+    line-height: 40px;
+
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 35px;
+}
+
+ul li.item-menu a .icon>i {
+    font-size: 25px;
+    margin-left: 18px;
+}

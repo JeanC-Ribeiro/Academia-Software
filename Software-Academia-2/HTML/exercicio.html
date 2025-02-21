@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visual Academy</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <script src="../JS/exercicio.js"></script>
+    <link rel="stylesheet" href="../CSS/exercicio.css" type="text/css">
+    <script src="../JS/exercicio.js"></script>
+</head>
+
+<body>
+    <nav class="menu-lateral">
+
+
+        <div class="bnt-expandir">
+            <i class="bi bi-list" id="bnt-exp"></i>
+        </div>
+        <br>
+
+        <ul>
+            <li class="item-menu">
+                <a>
+                    <span class="icon"><i class="bi bi-person-check-fill"></i></span>
+                    <span id="nomeUsuario" class="txt-link"></span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../HTML/menu.html">
+                    <span class="icon"><i class="bi bi-house"></i></span>
+                    <span class="txt-link">Menu</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../HTML/exercicio.html">
+                    <span class="icon"><i class="bi bi-clipboard2-data"></i></span>
+                    <span class="txt-link">Exercício</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../HTML/planos.html">
+                    <span class="icon"><i class="bi bi-cart-check"></i></span>
+                    <span class="txt-link">Planos</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../HTML/financeiro.html">
+                    <span class="icon"><i class="bi bi-cash-coin"></i></span>
+                    <span class="txt-link">Financeiro</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="../HTML/logout.html">
+                    <span class="icon"><i class="bi bi-box-arrow-in-left"></i></span>
+                    <span class="txt-link">Sair</span>
+                </a>
+            </li>
+    </nav>
+    </div>
+    </form>
+    </table>
+
+
+    <div id="main"></div>
+    <br>
+    <h1>Tabela de Treino</h1>
+    <br>
+    <div class="name"></div>
+    <button onclick="gerarTreino()">Gerar Treino</button>
+    <br>
+    <h2>Treino do Usuário</h2>
+    <br>
+    <table border="1" id="tabelaTreino">
+        <tr>
+            <th>Dia</th>
+            <th>Exercício</th>
+        </tr>
+
+
+
+        </div>
+        </form>
+
+</body>
+
+<script>
+    if (localStorage.idAlunoLogado.length != 0) {
+        let data = JSON.parse(localStorage.alunosArr)
+        for (let counter = 0; counter < data.length; counter++) {
+            if (data[counter].id == localStorage.idAlunoLogado) {
+                document.getElementById("nomeUsuario").innerText = '' + data[counter].nome;
+            }
+        }
+    }
+
+</script>
+
+</html>

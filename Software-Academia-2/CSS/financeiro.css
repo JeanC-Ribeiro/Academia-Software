@@ -1,0 +1,213 @@
+@import url("https:/fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+nav.menu-lateral {
+    width: 65px;
+    height: 100%;
+    background-color: #46295a;
+    padding: 40px 0 40px 0%;
+    box-shadow: 5px 0 0 purple;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+nav.menu-lateral:hover {
+    width: 300px;
+}
+
+.bnt-expandir {
+    width: 100%;
+    padding-left: 15px;
+
+}
+
+.bnt-expandir>i {
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    padding-left: 3%;
+}
+
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu {
+    white-space: nowrap;
+    transition: 0.5s;
+}
+
+
+ul li.item-menu:hover {
+    background-color: purple;
+}
+
+ul li.item-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 3%;
+    display: flex;
+    margin-bottom: 15px;
+    line-height: 40px;
+   
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 35px;
+}
+
+ul li.item-menu a .icon>i {
+    font-size: 25px;
+    margin-left: 18px;
+}
+
+
+body {
+    background-image: url('../IMAGENS/financeiro.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    
+}
+
+#main {
+    max-width: 500px;
+    margin: 2px auto;
+    padding: 50px;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    
+   
+}
+
+
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #fff;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #007BFF;
+    color: #fff;
+    transition: 0.5s;
+}
+
+button {
+    display: block;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto 0;
+}
+
+button:hover {
+    background-color: rgba(72, 47, 70);
+    transition: 0.3s;
+
+}
+
+#div-pix,
+#div-boleto,
+#div-cartaoDeCredito {
+    display: none;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#qrCode {
+    width: 200px;
+    height: 200px;
+}
+
+h2, h3, h4 {
+    text-align: center;
+    color: #fff;
+    font-size: large;
+    
+}
+h1{
+    text-align: center;
+    color: #fff;
+  
+}
+
+#div-cartaoDeCredito {
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cartao-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+#div-cartaoDeCredito input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#div-cartaoDeCredito button {
+    display: block;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto 0;
+}
+
+#div-cartaoDeCredito button:hover {
+    background-color: rgba(72, 47, 70);
+    transition: 0.3s;
+}
+p {
+    color: #fff;
+    font-size: 18px;
+}
+
+
+
