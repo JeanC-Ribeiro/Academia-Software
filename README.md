@@ -19,6 +19,6 @@ Este projeto é um software interativo para academias, desenvolvido em grupo, qu
 
 ## 📥 Como Executar o Projeto
 
-.Acesse o projeto online
+.Acesse o projeto clonando o repositorio
    ```bash
-  https://jeanc-ribeiro.github.io/Academia-Software/
+https://github.com/JeanC-Ribeiro/Academia-Software.git
